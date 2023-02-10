@@ -52,7 +52,7 @@ function Home() {
         </section>
         <section id='Our_service' className='section m-top'>
           <div className="left">
-            <img src="https://harvestify.herokuapp.com/static/images/s3.jpg" alt="" />
+            <img src="https://tse3.mm.bing.net/th?id=OIP.yxzhqhks3AE7_sKf_76JAgHaE7&pid=Api&P=0" alt="" />
           </div>
           <div className="right">
             <h4>

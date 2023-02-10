@@ -1,0 +1,19 @@
+[
+    {
+        "name":"Pratham shinde",
+        "_id":1234567,
+        "password":"pass#23"
+    }, {
+        "name":"Daksh shinde",
+        "_id":1239877,
+        "password":"password23"
+    }, {
+        "name":"Kajal pathak",
+        "_id":9872678,
+        "password":"propass@1"
+    }, {
+        "name":"Narendra modi",
+        "_id":7745679,
+        "password":"pass#23131"
+    }
+]

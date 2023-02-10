@@ -1,0 +1,29 @@
+.popup{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    border: 1px solid transparent;
+    color: black;
+    top: -1rem;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+    font-size: 1.1rem;
+    transition: .2s all;
+}
+.error{
+    background: rgba(252, 185, 185, 0.662);
+    opacity: 1;
+    top: 2rem;
+    color: rgb(234, 33, 33);
+
+}
+.success{
+    background: rgba(199, 252, 185, 0.662);
+    opacity: 1;
+    top: 2rem;
+    color: rgb(36, 234, 33);
+
+}

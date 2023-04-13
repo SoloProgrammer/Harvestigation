@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 
 function About() {
     useEffect(() => {
-        document.title = "CropCaring - About"
+        document.title = "Harvestigation - About"
     }, [])
     return (
         <Container maxWidth="lg" className='m_top'>

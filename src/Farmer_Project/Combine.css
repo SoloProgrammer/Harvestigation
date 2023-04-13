@@ -13,7 +13,9 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
+.logoutBtn{
+    min-width: 120px !important;
+}
 a {
     outline: none;
     list-style: none;
@@ -106,8 +108,8 @@ a:hover {
     position: absolute;
     left: 0;
     top: 0;
-    background-image: url("https://tse4.mm.bing.net/th?id=OIP.m4HSzVfmRQ_nvdvYe2c-XQHaEK&pid=Api&P=0");
-    background-image: url("https://tse4.mm.bing.net/th?id=OIP.m4HSzVfmRQ_nvdvYe2c-XQHaEK&pid=Api&P=0");
+    background-image: url("https://thumbs.dreamstime.com/b/field-fertile-green-crops-field-fertile-green-crops-rich-dark-soil-mexico-126666979.jpg");
+    filter: brightness(.7);
 
     background-repeat: no-repeat;
     z-index: -1;
@@ -440,7 +442,11 @@ a:hover {
 }
 }
 
-@media (max-width:600px) {
+@media (max-width:770px) {
+    .logoutBtn{
+        min-height: 31px !important;
+        min-width: 100px !important;
+    }
     .Login_box .logo {
         width: 9rem;
         height: 9rem;

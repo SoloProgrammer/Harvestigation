@@ -39,10 +39,10 @@ function Farm_app() {
       <SpaceTop />
       <Routes>
         <Route path="/" element={<Home signUp={false} setOpen={setOpen} setPopup={setPopup} />} />
-        <Route path="/farm-login" element={<Login signUp={false} open={open} setOpen={setOpen} popup={popup} setPopup={setPopup} />} />
-        <Route path="/farm-CreateAccount" element={<Login signUp={true} open={open} setOpen={setOpen} popup={popup} setPopup={setPopup} />} />
+        <Route path="/farm-login" element={<Login signUp={false} setOpen={setOpen} setPopup={setPopup} />} />
+        <Route path="/farm-CreateAccount" element={<Login signUp={true} setOpen={setOpen}  setPopup={setPopup} />} />
         <Route path="/farm-about" element={<About />} />
-        <Route path="/activate_crop" element={<CropInput />} />
+        <Route path="/activate_crop" element={<CropInput setOpen={setOpen} setPopup={setPopup} />} />
       </Routes>
 
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

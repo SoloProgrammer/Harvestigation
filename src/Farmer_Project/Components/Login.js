@@ -80,6 +80,17 @@ function Login({ signUp, setPopup, setOpen }) {
             return
         }
 
+        if (signUp && (password !== cpassword)) {
+            setOpen(true)
+            setPopup({
+                pop: true,
+                pop_msg: "Password doesn't match!",
+                pop_type: "error"
+            })
+            removeAlert()
+            return
+        }
+
         let configs = {
             method: "POST",
             headers: {
@@ -87,21 +98,10 @@ function Login({ signUp, setPopup, setOpen }) {
             }
         }
 
-
         setLoad(true)
-
+        
         if (signUp) {
-
-            if (password !== cpassword) {
-                setOpen(true)
-                setPopup({
-                    pop: true,
-                    pop_msg: "Password doesn't match!",
-                    pop_type: "error"
-                })
-                removeAlert()
-                return
-            }
+            
             configs.body = JSON.stringify({ name1: username, email, password });
 
             const res = await fetch(`${server}/api/auth/createuser`, configs);
@@ -112,7 +112,6 @@ function Login({ signUp, setPopup, setOpen }) {
             if (!json.success) {
                 setOpen(true)
                 let errormsg = json.errormsg ? json.errormsg : json.errors[0].msg
-                console.log(errormsg);
                 setPopup({
                     pop: true,
                     pop_msg: errormsg,
@@ -201,9 +200,10 @@ function Login({ signUp, setPopup, setOpen }) {
 
                         <div className="inpt_box">
                             <FormControl sx={{ m: 1, width: '100%' }} variant="outlined" className='form_control'>
-                                <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-email" >Email</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-email"
+                                    autoComplete="off"
                                     type='email'
                                     value={values.email}
                                     onChange={(e) => { setValues({ ...values, email: e.target.value }) }}

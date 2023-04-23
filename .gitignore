@@ -10,6 +10,8 @@
 
 # production
 /build
+/Backend
+/Flask_Backend/env
 
 # misc
 .DS_Store

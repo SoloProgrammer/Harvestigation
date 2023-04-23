@@ -8,7 +8,26 @@
     margin-top: 2rem;
 
 }
+.poppins{
+    font-family: poppins;
+}
+h6{
+    font-weight: bold;
+    color: black;
+    text-align: start;
+}
 
+li{
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #901f1f;
+}
+.Cropdetail{
+    color: black;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
 .padding-left-0 {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -355,6 +374,7 @@ a:hover {
 .mui_btn{
     outline: none !important;
     margin-bottom: .3rem !important;
+    border-radius: 10rem !important;
 }
 
 /* Soil Mieral input CSS starts here................................ */

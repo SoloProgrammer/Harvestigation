@@ -4,15 +4,17 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { States, Cities } from './StatesCities'
 import CropDetailModal from './Modals/CropDetailModal';
+import { flushSync } from 'react-dom';
 
 function CropInput({ setPopup, setOpen }) {
 
     const [show, setShow] = useState(false);
-    // const handleOpen = () => setOpen(true);
-    const handleClose = () => setShow(false);
-
     const [modaldetail, setModalDetail] = useState({})
-
+    const [state, setState] = useState('');
+    const [city, setCity] = useState('');
+    const [loading, setLoading] = useState(false)
+    
+    const handleClose = () => setShow(false);
     const [inptData, setInptData] = useState({
         nitrogen: '',
         phosphorus: '',
@@ -26,8 +28,6 @@ function CropInput({ setPopup, setOpen }) {
     const handleChange = (e) => {
         setInptData({ ...inptData, [e.target.name]: e.target.value })
     }
-
-    const [loading, setLoading] = useState(false)
 
     function removeAlert() {
         setTimeout(() => {
@@ -49,22 +49,39 @@ function CropInput({ setPopup, setOpen }) {
                 pop_type: "error"
             })
         }
+        else if(!state){
+            setOpen(true)
+            setPopup({
+                pop: true,
+                pop_msg: "Please specify your state",
+                pop_type: "error"
+            })
+        }
+        else if(!city){
+            setOpen(true)
+            setPopup({
+                pop: true,
+                pop_msg: "Please specify your city",
+                pop_type: "error"
+            })
+        }
         else {
             try {
                 setLoading(true)
-                let flask_server = "http://127.0.0.1:5000"
-                let res = await fetch(`${flask_server}/harvest`, {
+                const flask_server = "https://harvestigation-flask-backend.onrender.com"
+                const res = await fetch(`${flask_server}/harvest`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({ "soilData": { ...inptData } })
                 });
-                let json = await res.json();
+                const json = await res.json();
                 setLoading(false)
                 setShow(true)
-                console.log(json);
-                setModalDetail({ ...json })
+                flushSync(()=>{
+                    setModalDetail({ ...json })
+                })
             } catch (error) {
                 setOpen(true)
                 setPopup({
@@ -79,9 +96,6 @@ function CropInput({ setPopup, setOpen }) {
             removeAlert()
         }, 3000);
     }
-
-    const [state, setState] = useState('');
-    const [city, setCity] = useState('');
 
     const handleStateChange = (e) => {
         setState(e.target.value);

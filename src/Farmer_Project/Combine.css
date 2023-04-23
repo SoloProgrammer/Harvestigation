@@ -11,17 +11,45 @@
 .poppins{
     font-family: poppins;
 }
+button:focus{
+    outline: none !important;
+}
 h6{
     font-weight: bold;
     color: black;
     text-align: start;
 }
 
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.MuiTypography-h6{
+    color: #c40000 !important;
+}
+
+.MuiBox-root{
+    border-radius: .4rem !important;
+    border: none !important;
+    max-width: 95%;
+}
+
+u{
+    color: rgb(2, 79, 186);
+    font-weight: 300 !important;
+}
+
 li{
     font-weight: 400;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.1rem;
-    color: #901f1f;
+    color: #5b6270;
+}
+i{
+    color: #a70000 !important;
 }
 .Cropdetail{
     color: black;
@@ -52,13 +80,13 @@ a:hover {
     margin-bottom: .3rem !important;
 }
 
-.Login_box .logo {
+.Login_box,.CropDetailModal .logo {
     width: 10rem;
     height: 10rem;
     margin: auto;
 }
 
-.Login_box .logo img {
+.Login_box,.CropDetailModal .logo img {
     width: 100%;
     height: 100%;
     border-radius: 50%;

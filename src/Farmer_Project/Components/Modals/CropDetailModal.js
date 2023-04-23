@@ -11,7 +11,7 @@ function CropDetailModal({ show, handleClose, modaldetail }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 470,
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -27,11 +27,21 @@ function CropDetailModal({ show, handleClose, modaldetail }) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={style} className='CropDetailModal'>
+                    <div className='mb-3'>
+                        <div className="brand_logo">
+                            <div className="logo">
+                                <img src="https://webstockreview.net/images/clover-clipart-daun-11.png" alt="logo" />
+                            </div>
+                        </div>
+                    </div>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Best Suited Crop to grow on your land is {modaldetail.crop_name}
                     </Typography>
-                    <div className='poppins' dangerouslySetInnerHTML={{__html: modaldetail.detail}}/>
+                    <div className='poppins' dangerouslySetInnerHTML={{ __html: modaldetail.detail }} />
+                    <div className='flex-end'>
+                        <Button onClick={handleClose} variant="contained" size="medium">Close</Button>
+                    </div>
                 </Box>
             </Modal>
         </div>

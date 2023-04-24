@@ -1,7 +1,4 @@
 from flask import Flask, request, jsonify
-# from tkinter import *
-# Importing pyttsx3 library to convert text into speech.
-# import pyttsx3
 # Importing pandas library
 import pandas as pd
 # Importing sklearn library. This is a very powerfull library for machine learning. Scikit-learn is probably the most useful library for machine learning in Python. The sklearn library contains a lot of efficient tools for machine learning and statistical modeling including classification, regression, clustering and dimensionality reduction.
@@ -10,8 +7,7 @@ from sklearn import preprocessing
 from sklearn.neighbors import KNeighborsClassifier
 # Importing numpy to do stuffs related to arrays
 import numpy as np
-# Importing pysimplegui to make a Graphical User Interface.
-# import PySimpleGUI as sg
+# Importing flask_cors to ignore all the cross origin errors
 from flask_cors import CORS
 import os
 

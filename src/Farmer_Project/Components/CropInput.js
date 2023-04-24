@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select, TextField, CircularProgress } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { States, Cities } from './StatesCities'
@@ -13,6 +13,12 @@ function CropInput({ setPopup, setOpen }) {
     const [state, setState] = useState('');
     const [city, setCity] = useState('');
     const [loading, setLoading] = useState(false)
+
+    useEffect(() =>{
+        if(!localStorage.getItem('token')){
+            window.location.href = window.location.origin
+        }   
+    },[])
     
     const handleClose = () => setShow(false);
     const [inptData, setInptData] = useState({
@@ -31,7 +37,6 @@ function CropInput({ setPopup, setOpen }) {
 
     function removeAlert() {
         setTimeout(() => {
-            setLoading(false)
             setOpen(false)
         }, 2000);
     }
@@ -68,8 +73,11 @@ function CropInput({ setPopup, setOpen }) {
         else {
             try {
                 setLoading(true)
-                const flask_server = "https://harvestigation-flask-backend.onrender.com"
-                const res = await fetch(`${flask_server}/harvest`, {
+                const flask_server = {
+                    local:"http://127.0.0.1:5000",
+                    production:"https://harvestigation-flask-backend.onrender.com"
+                }
+                const res = await fetch(`${flask_server.local}/harvest`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -77,11 +85,15 @@ function CropInput({ setPopup, setOpen }) {
                     body: JSON.stringify({ "soilData": { ...inptData } })
                 });
                 const json = await res.json();
-                setLoading(false)
-                setShow(true)
-                flushSync(()=>{
-                    setModalDetail({ ...json })
-                })
+
+                if(json){
+                    setShow(true)
+                    flushSync(()=>{
+                        setModalDetail({ ...json })
+                    })
+                   
+                   setLoading(false)
+                }
             } catch (error) {
                 setOpen(true)
                 setPopup({

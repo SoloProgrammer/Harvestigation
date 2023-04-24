@@ -3,7 +3,6 @@ import Login from './Components/Login'
 import '../Farmer_Project/Combine.css'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './Components/Home'
-import SpaceTop from './Components/SpaceTop'
 import About from './Components/About'
 import Navbar from './Components/Navbar'
 import CropInput from './Components/CropInput'
@@ -36,7 +35,6 @@ function Farm_app() {
   return (
     <>
       <Navbar />
-      <SpaceTop />
       <Routes>
         <Route path="/" element={<Home signUp={false} setOpen={setOpen} setPopup={setPopup} />} />
         <Route path="/farm-login" element={<Login signUp={false} setOpen={setOpen} setPopup={setPopup} />} />

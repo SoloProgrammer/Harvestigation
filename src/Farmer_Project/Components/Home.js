@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Container from '@mui/material/Container';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import SpaceTop from './SpaceTop';
 // import { loadPyodide } from 'pyodide';
 // import {PythonShell} from 'python-shell';
 
@@ -32,6 +33,7 @@ function Home({ setPopup, setOpen }) {
 
   return (
     <div className='Home_box'>
+      <SpaceTop />
       <section className='section'>
         <h1 className="header_title text-center">
           <span>Welcome To Crop <b className='brandname'>Harvestigation</b> Company </span>

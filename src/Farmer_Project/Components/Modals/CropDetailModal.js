@@ -28,18 +28,18 @@ function CropDetailModal({ show, handleClose, modaldetail }) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style} className='CropDetailModal'>
-                    <div className='mb-3'>
+                    <div className='mb-4'>
                         <div className="brand_logo">
                             <div className="logo">
                                 <img src="https://webstockreview.net/images/clover-clipart-daun-11.png" alt="logo" />
                             </div>
                         </div>
                     </div>
+                    <div className='poppins borderbtm mb-3' dangerouslySetInnerHTML={{ __html: modaldetail.detail }} />
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Best Suited Crop to grow on your land is {modaldetail.crop_name}
+                        Looking to the above soil conditions in your farm we conclude that the <span className='crop_name'>{modaldetail.crop_name}</span> is the best suited crop to grow on your land!
                     </Typography>
-                    <div className='poppins' dangerouslySetInnerHTML={{ __html: modaldetail.detail }} />
-                    <div className='flex-end'>
+                    <div className='flex-end mt-3'>
                         <Button onClick={handleClose} variant="contained" size="medium">Close</Button>
                     </div>
                 </Box>
